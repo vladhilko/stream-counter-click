@@ -2,6 +2,9 @@
 
 The application integrates Kafka with a Rails backend, processing messages in real-time and updating the frontend using Action Cable.
 
+![KafkaSample](https://github.com/vladhilko/stream-counter-click/assets/12089948/15d5e109-fa70-4131-aa2e-0f8cc6ec06da)
+
+
 ## Getting Started
 
 ### Setting Up the Environment
