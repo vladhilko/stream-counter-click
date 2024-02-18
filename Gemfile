@@ -71,3 +71,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "karafka-web", "~> 0.8.2"

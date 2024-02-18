@@ -1,5 +1,7 @@
+require 'karafka/web'
+
 Rails.application.routes.draw do
-  get "up" => "rails/health#show", as: :rails_health_check
+  mount Karafka::Web::App, at: '/karafka'
 
   root 'events#index'
 
@@ -8,5 +10,4 @@ Rails.application.routes.draw do
       post :produce_kafka_event
     end
   end
-
 end
