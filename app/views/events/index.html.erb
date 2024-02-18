@@ -3,7 +3,7 @@
 <% end %>
 
 <h2>Events</h2>
-<ul>
+<ul id="events-list">
   <% @events.each do |event| %>
     <li><%= event.message %> (Queue: <%= event.message_queue %>)</li>
   <% end %>
