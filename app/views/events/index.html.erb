@@ -1,0 +1,10 @@
+<%= form_with url: produce_kafka_event_events_path, method: :post do |form| %>
+  <%= form.submit "Produce Kafka Message" %>
+<% end %>
+
+<h2>Events</h2>
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.message %> (Queue: <%= event.message_queue %>)</li>
+  <% end %>
+</ul>
