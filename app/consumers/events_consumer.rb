@@ -6,7 +6,7 @@ class EventsConsumer < ApplicationConsumer
         message_queue: 'kafka'
       )
 
-      ActionCable.server.broadcast("events_channel", { id: event.id, message: event.message, message_queue: event.message_queue, created_at: event.created_at })
+      ActionCable.server.broadcast("events_channel", { id: event.id, message: event.message, message_queue: event.message_queue, created_at: event.created_at.strftime("%H:%M:%S") })
     end
   rescue => e
     Rails.logger.error("Failed to consume message: #{e.message}")

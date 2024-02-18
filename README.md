@@ -10,6 +10,7 @@
 ```
 $ docker-compose up
 $ bundle exec karafka server
+$ ./bin/dev
 ```
 
 ### Send a new kafka event
