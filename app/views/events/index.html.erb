@@ -1,0 +1,15 @@
+
+
+<div class="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+  <%= form_with url: produce_kafka_event_events_path, method: :post, class: "mb-4" do |form| %>
+    <%= form.submit "Produce Kafka Message", class: "cursor-pointer px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700" %>
+  <% end %>
+  <h2 class="text-2xl font-bold mb-2">Events: <span id="events-count"><%= @events.count %></span></h2>
+  <ul id="events-list" class="bg-white rounded-lg border border-gray-200 w-96 text-gray-900">
+    <% @events.each do |event| %>
+      <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
+        <span class="font-semibold">Message:</span> <%= event.message %> <span class="font-semibold">Time:</span> <%= event.created_at.strftime("%H:%M:%S") %>
+      </li>
+    <% end %>
+  </ul>
+</div>

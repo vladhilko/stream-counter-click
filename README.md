@@ -1,24 +1,48 @@
-# README
+## Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application integrates Kafka with a Rails backend, processing messages in real-time and updating the frontend using Action Cable.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+### Setting Up the Environment
 
-* System dependencies
+1. **Start Kafka and Zookeeper**:
+    Use Docker Compose to start Kafka, Zookeeper, and any other dependent services:
+    ```sh
+    docker-compose up -d
+    ```
 
-* Configuration
+2. **Run Karafka Server**:
+    Start the Karafka server to begin consuming Kafka messages:
+    ```sh
+    bundle exec karafka server
+    ```
 
-* Database creation
+3. **Start Rails Server**:
+    Use the provided script to start the Rails server along with any other development processes:
+    ```sh
+    ./bin/dev
+    ```
 
-* Database initialization
+### Sending Kafka Events
 
-* How to run the test suite
+To send a new Kafka event and see real-time updates in the web UI, use the following command in your Rails console:
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+Karafka.producer.produce_sync(topic: 'events', payload: { 'message': 'hello' }.to_json)
+```
 
-* Deployment instructions
+### Accessing the Application
 
-* ...
+Navigate to the following URLs to access the application and the Karafka dashboard:
+
+- Application URL: <http://127.0.0.1:3000/>
+- Karafka Dashboard: <http://127.0.0.1:3000/karafka/dashboard>
+
+Karafka Setup and Documentation
+-------------------------------
+
+For detailed instructions on setting up Karafka and Kafka, refer to the official Karafka documentation:
+
+- [Setting up Kafka](https://karafka.io/docs/setting-up-kafka/)
+- [Getting Started with the Web UI](https://karafka.io/docs/web-ui-getting-started/)
