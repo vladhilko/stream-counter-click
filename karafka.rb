@@ -40,6 +40,10 @@ class KarafkaApp < Karafka::App
       # config(partitions: 2, 'cleanup.policy': 'compact')
       consumer ExampleConsumer
     end
+
+    topic :events do
+      consumer EventsConsumer
+    end
   end
 end
 

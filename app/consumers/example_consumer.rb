@@ -3,7 +3,7 @@
 # Example consumer that prints messages payloads
 class ExampleConsumer < ApplicationConsumer
   def consume
-    messages.each { |message| puts message.payload }
+    messages.each { |message| puts "MY: #{message.payload}" }
   end
 
   # Run anything upon partition being revoked
