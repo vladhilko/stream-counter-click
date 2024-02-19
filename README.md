@@ -42,10 +42,32 @@ Navigate to the following URLs to access the application and the Karafka dashboa
 - Application URL: <http://127.0.0.1:3000/>
 - Karafka Dashboard: <http://127.0.0.1:3000/karafka/dashboard>
 
-Karafka Setup and Documentation
--------------------------------
+
+### Configuring Karafka Settings
+
+You can customize the behavior of Karafka by adjusting certain configuration settings. Two important settings you may want to consider are `max_messages` and `max_wait_time`.
+
+- **max_messages**: This setting determines how many messages Karafka fetches from Kafka in one go. By default, it is set to 100. You can adjust this value based on your application's requirements and performance considerations.
+
+- **max_wait_time**: This setting specifies the number of milliseconds Karafka waits while fetching data from Kafka. The default value is 1000 milliseconds (1 second). You can modify this value to control the maximum latency experienced during message consumption.
+
+To configure these settings, you can modify the `karafka.rb` file in your application. Here's an example of how you can set these values:
+
+```ruby
+class KarafkaApp < Karafka::App
+  setup do |config|
+    # Other configuration settings...
+    config.max_wait_time = 500 # Adjust the wait time to 500 milliseconds
+    config.max_messages = 50   # Fetch 50 messages from Kafka in one go
+  end
+end
+```
+
+### Karafka Setup and Documentation
 
 For detailed instructions on setting up Karafka and Kafka, refer to the official Karafka documentation:
 
 - [Setting up Kafka](https://karafka.io/docs/setting-up-kafka/)
 - [Getting Started with the Web UI](https://karafka.io/docs/web-ui-getting-started/)
+
+For more advanced configuration options and settings, you can refer to the [Karafka configuration file](https://github.com/karafka/karafka/blob/master/lib/karafka/setup/config.rb). This file contains additional settings and parameters that you can customize to fine-tune the behavior of your Karafka application.
