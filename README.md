@@ -63,6 +63,9 @@ class KarafkaApp < Karafka::App
 end
 ```
 
+![karafka-sample](https://github.com/vladhilko/stream-counter-click/assets/12089948/9bf2f578-90f9-41a0-8d3b-e080940bfd2b)
+
+
 ### Karafka Setup and Documentation
 
 For detailed instructions on setting up Karafka and Kafka, refer to the official Karafka documentation:
